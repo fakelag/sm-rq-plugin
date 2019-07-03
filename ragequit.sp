@@ -17,7 +17,7 @@ public Plugin:HvtPluginInfo =
 {
 	name = "Rage Quit",
 	author = "FL",
-	description = "Replaces disconnect reason & sound in the case of a RQ",
+	description = "Distinguishes innocent, regular disconnects from rage inflicted ones.",
 	version = "1.0",
 	url = ""
 };
