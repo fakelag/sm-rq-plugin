@@ -10,7 +10,7 @@ A plugin to distinguish innocent, regular disconnects from rage inflicted ones.
 
 ## Server installation
 * Copy `plugins/ragequit.smx` to your `addons/sourcemod/plugins` folder
-* Type `sm plugins load hvt` to the server console
+* Type `sm plugins load ragequit` to the server console
 
 ## Compilation
 * Compile with the sourcepawn compiler (https://www.sourcemod.net/downloads.php)
