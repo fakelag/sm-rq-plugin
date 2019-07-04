@@ -47,7 +47,7 @@ public void OnPluginStart()
 		HookEventEx("player_disconnect", Event_Disconnect, EventHookMode_Pre);
 		HookEvent("player_connect", Event_Connect);
 		HookEvent("server_spawn", Event_ServerSpawn);
-
+		
 		RegAdminCmd("rqtest", Command_TestSound, Admin_Generic);
 
 		PrintToServer("[RQ] Rage Quit plugin loaded successfully!");
@@ -102,11 +102,7 @@ public Action:Event_Disconnect(Handle:event, const String:name[], bool:dontBroad
 		{
 			// ragequit
 			// Player {name} left the game (Disconnect by user.)
-
-			new String:szSoundPath[256];
-			GetConVarString(rq_filename, szSoundPath, sizeof(szSoundPath));
-
-			EmitSoundToAll(szSoundPath);
+			PlaySound();
 
 			new String:szClientName[64];
 			GetEventString(event, "name", szClientName, sizeof(szClientName));
