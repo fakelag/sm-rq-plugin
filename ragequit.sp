@@ -22,6 +22,14 @@ public Plugin:HvtPluginInfo =
 	url = ""
 };
 
+public PlaySound()
+{
+	new String:szSoundPath[256];
+	GetConVarString(rq_filename, szSoundPath, sizeof(szSoundPath));
+
+	EmitSoundToAll(szSoundPath, _, _, _, _, GetConVarFloat(rq_volume), _, _, _, _, _, _);
+}
+
 public void OnPluginStart()
 {
 		rq_seconds = CreateConVar("rq_seconds", "10", "Amount of seconds from death to a disconnect to consider the player ragequitted");
