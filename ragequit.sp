@@ -61,10 +61,12 @@ public void OnMapStart()
 		new String:szFullPath[256];
 		Format(szFullPath, sizeof(szFullPath), "sound/%s", szSoundPath);
 
-		PrecacheSound(szSoundPath, true);
-		AddFileToDownloadsTable(szFullPath);  
+		if (!PrecacheSound(szSoundPath, true))
+		{
+			PrintToServer("[RQ] Failed to precache %s", szSoundPath);
+		}
 
-		PrintToServer("[RQ] Rage Quit plugin loaded successfully!");
+		AddFileToDownloadsTable(szFullPath);
 }
 
 public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroadcast)
