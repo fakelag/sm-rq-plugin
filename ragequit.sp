@@ -6,6 +6,7 @@ float g_flLastDeathTime[MAXPLAYERS+1] = -1.0;
 
 ConVar rq_seconds;
 ConVar rq_filename;
+ConVar rq_volume;
 
 char g_szReasons[][] = {
 	"{red}Raged by user{default}.",
@@ -34,6 +35,7 @@ public void OnPluginStart()
 {
 		rq_seconds = CreateConVar("rq_seconds", "10", "Amount of seconds from death to a disconnect to consider the player ragequitted");
 		rq_filename = CreateConVar("rq_filename", "rq/rq1.mp3", "Ragequit sound file path");
+		rq_volume = CreateConVar("rq_volume", "0.1", "Ragequit sound volume");
 
 		HookEvent("player_death", Event_PlayerDeath);
 		HookEventEx("player_disconnect", Event_Disconnect, EventHookMode_Pre);
