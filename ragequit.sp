@@ -31,6 +31,12 @@ public PlaySound()
 	EmitSoundToAll(szSoundPath, _, _, _, _, GetConVarFloat(rq_volume), _, _, _, _, _, _);
 }
 
+public Action Command_TestSound(int nClient, int args)
+{
+	PlaySound();
+	return Plugin_Handled;
+}
+
 public void OnPluginStart()
 {
 		rq_seconds = CreateConVar("rq_seconds", "10", "Amount of seconds from death to a disconnect to consider the player ragequitted");
@@ -42,6 +48,13 @@ public void OnPluginStart()
 		HookEvent("player_connect", Event_Connect);
 		HookEvent("server_spawn", Event_ServerSpawn);
 
+		RegAdminCmd("rqtest", Command_TestSound, Admin_Generic);
+
+		PrintToServer("[RQ] Rage Quit plugin loaded successfully!");
+}
+
+public void OnMapStart()
+{
 		new String:szSoundPath[256];
 		GetConVarString(rq_filename, szSoundPath, sizeof(szSoundPath));
 
