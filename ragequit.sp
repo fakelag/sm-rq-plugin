@@ -9,9 +9,9 @@ ConVar rq_filename;
 ConVar rq_volume;
 
 char g_szReasons[][] = {
-	"{red}Raged by user{default}.",
-	"{red}Couldn't handle all the feelings{default}.",
-	"{red}Ragequitted ¯\\_(ツ)_/¯{default}."
+	"{red}Raged by user{default}",
+	"{red}Couldn't handle all the feelings{default}",
+	"{red}Ragequit ¯\\_(ツ)_/¯{default}"
 };
 
 public Plugin:HvtPluginInfo =
